@@ -6,10 +6,31 @@ function filtrarPorPrecio(precioMax){
     return filtrados;
 }
 
+class producto{
+    constructor(id,nombre,precio){
+        this.id=id
+        this.nombre=nombre
+        this.precio=precio
+    }
+    mostrarProducto(){
+        alert(this.id+" - "+this.nombre+" - Precio: "+this.precio)
+    }
+}
+
+function crearProducto(){
+    let id=productos.length + 1;
+    let nombre=prompt("Ingrese nombre de producto")
+    let precio=parseInt(prompt("Ingrese precio de producto"))
+
+    const nuevoProducto = new producto(id,nombre,precio)
+    productos.push(nuevoProducto)
+}
+
+
 
 
 //ver todos los productos
-let opcion=parseInt(prompt("Ingrese opcion: \n1-VER PRODUCTOS\n2-FILTRAR PRODUCTOS\n0-SALIR"))
+let opcion=parseInt(prompt("Ingrese opcion: \n1-VER PRODUCTOS\n2-FILTRAR PRODUCTOS\n3-CREAR PRODUCTO\n0-SALIR"))
 let precioUsuario //= parseFloat(prompt('Ingresa el precio maximo que puedes abonar (0-salir)'));//renderizarProductos(productos)
     switch(opcion){
         case 1:
@@ -25,6 +46,11 @@ let precioUsuario //= parseFloat(prompt('Ingresa el precio maximo que puedes abo
                     renderizarProductos(prodsFiltrados);
                 }
                 break;
+        case 3:
+            crearProducto()
+            console.table(productos)
+            alert("Ingrese a consola para ver el producto agregado😁")
+            break;
         default:
             alert("Ingreso una opcion incorrecta👀")
             alert("ACTULICE LA PAGINA🌌")
