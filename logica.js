@@ -5,7 +5,7 @@ function filtrarPorPrecio(precioMax){
     const filtrados = productos.filter((producto) => producto.precio <= precioMax);
     return filtrados;
 }
-
+ 
 class producto{
     constructor(id,nombre,precio){
         this.id=id
